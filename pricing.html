@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Inkfinite Digital Printing Shop</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Inkfinite Logo" class="logo-img me-2" width="40" height="40">
+                <span class="brand-text">
+                    <span class="text-primary fw-bold">Inkfinite</span>
+                    <small class="d-block text-muted" style="font-size: 12px;">Digital Printing Shop</small>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Header -->
+    <section class="pricing-header py-5 mt-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">Our Pricing</h1>
+                    <p class="lead">Transparent pricing for all your printing needs. Choose the package that best suits your requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Toggle -->
+    <section class="pricing-toggle py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="pricingToggle">
+                        <label class="form-check-label" for="pricingToggle">Show Bulk Discounts</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Calculator -->
+    <section class="price-calculator py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="calculator-card">
+                        <h3 class="text-center mb-4">Instant Price Calculator</h3>
+                        <form id="calculatorForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="productType" required>
+                                            <option value="">Select Product</option>
+                                            <option value="business-cards">Business Cards</option>
+                                            <option value="flyers">Flyers</option>
+                                            <option value="banners">Banners</option>
+                                            <option value="stickers">Stickers</option>
+                                        </select>
+                                        <label for="productType">Product Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="quantity" placeholder="Quantity" required>
+                                        <label for="quantity">Quantity</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="paperType" required>
+                                            <option value="">Select Paper Type</option>
+                                            <option value="standard">Standard</option>
+                                            <option value="premium">Premium</option>
+                                            <option value="luxury">Luxury</option>
+                                        </select>
+                                        <label for="paperType">Paper Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="finishing" required>
+                                            <option value="">Select Finishing</option>
+                                            <option value="matte">Matte</option>
+                                            <option value="glossy">Glossy</option>
+                                            <option value="spot-uv">Spot UV</option>
+                                        </select>
+                                        <label for="finishing">Finishing</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">Calculate Price</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="price-result mt-4 text-center" style="display: none;">
+                            <h4>Estimated Price:</h4>
+                            <h2 class="text-primary">₱<span id="calculatedPrice">0.00</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Comparison -->
+    <section class="package-comparison py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold">Package Comparison</h2>
+                    <p class="lead">Find the perfect package for your needs</p>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Basic</th>
+                            <th>Professional</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Paper Quality</td>
+                            <td>Standard</td>
+                            <td>Premium</td>
+                            <td>Luxury</td>
+                        </tr>
+                        <tr>
+                            <td>Finishing Options</td>
+                            <td>1 Option</td>
+                            <td>2 Options</td>
+                            <td>All Options</td>
+                        </tr>
+                        <tr>
+                            <td>Design Support</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Rush Orders</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Priority Support</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="special-offers py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold">Special Offers</h2>
+                    <p class="lead">Limited time deals and promotions</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="offer-card">
+                        <div class="offer-badge">Save 20%</div>
+                        <h3>New Customer Special</h3>
+                        <p>Get 20% off on your first order above ₱1,000</p>
+                        <ul class="offer-features">
+                            <li><i class="fas fa-check"></i> Valid for all products</li>
+                            <li><i class="fas fa-check"></i> One-time use only</li>
+                            <li><i class="fas fa-check"></i> No minimum quantity</li>
+                        </ul>
+                        <button class="btn btn-primary w-100">Claim Offer</button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="offer-card featured">
+                        <div class="offer-badge">Bulk Deal</div>
+                        <h3>Business Package</h3>
+                        <p>Complete business starter kit at special price</p>
+                        <ul class="offer-features">
+                            <li><i class="fas fa-check"></i> 500 Business Cards</li>
+                            <li><i class="fas fa-check"></i> 250 Letterheads</li>
+                            <li><i class="fas fa-check"></i> 250 Envelopes</li>
+                        </ul>
+                        <button class="btn btn-primary w-100">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="offer-card">
+                        <div class="offer-badge">Limited</div>
+                        <h3>Event Package</h3>
+                        <p>Complete event printing package</p>
+                        <ul class="offer-features">
+                            <li><i class="fas fa-check"></i> 1 Large Banner</li>
+                            <li><i class="fas fa-check"></i> 500 Flyers</li>
+                            <li><i class="fas fa-check"></i> 100 Posters</li>
+                        </ul>
+                        <button class="btn btn-primary w-100">Get Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pricing-cards py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Business Cards -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Business Cards</h3>
+                            <div class="price">
+                                <span class="amount">$29.99</span>
+                                <span class="period">/ 100 cards</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Premium Paper Stock</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Double-sided Printing</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Spot UV Available</li>
+                                <li><i class="fas fa-check text-success me-2"></i>3-5 Business Days</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Flyers -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <h3>Flyers</h3>
+                            <div class="price">
+                                <span class="amount">$49.99</span>
+                                <span class="period">/ 500 flyers</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Full Color Printing</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Double-sided Option</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Glossy/Matte Finish</li>
+                                <li><i class="fas fa-check text-success me-2"></i>2-3 Business Days</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Banners -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Banners</h3>
+                            <div class="price">
+                                <span class="amount">$79.99</span>
+                                <span class="period">/ 3x6ft</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>High-Resolution Print</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Weather Resistant</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Custom Sizes Available</li>
+                                <li><i class="fas fa-check text-success me-2"></i>1-2 Business Days</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bulk Pricing Table -->
+    <section class="bulk-pricing py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold">Bulk Order Discounts</h2>
+                    <p class="lead">Save more when you order in bulk. Contact us for custom quotes on large orders.</p>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Quantity</th>
+                            <th>Business Cards</th>
+                            <th>Flyers</th>
+                            <th>Banners</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>100-500</td>
+                            <td>10% Off</td>
+                            <td>15% Off</td>
+                            <td>5% Off</td>
+                        </tr>
+                        <tr>
+                            <td>501-1000</td>
+                            <td>20% Off</td>
+                            <td>25% Off</td>
+                            <td>10% Off</td>
+                        </tr>
+                        <tr>
+                            <td>1000+</td>
+                            <td>30% Off</td>
+                            <td>35% Off</td>
+                            <td>15% Off</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+                    <p class="lead">Find answers to common questions about our pricing and services.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Do you offer rush printing services?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer rush printing services for urgent orders. Rush orders are subject to additional fees and availability.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    What payment methods do you accept?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We accept all major credit cards, PayPal, and bank transfers for business accounts.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Do you offer design services?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer professional design services for an additional fee. Our design team can help create or modify your artwork.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Inkfinite Digital Printing</h5>
+                    <p>Your trusted partner for all printing needs. Quality service, competitive prices.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html" class="text-light">Services</a></li>
+                        <li><a href="portfolio.html" class="text-light">Portfolio</a></li>
+                        <li><a href="pricing.html" class="text-light">Pricing</a></li>
+                        <li><a href="contact.html" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Inkfinitedigitalprintingshop" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Inkfinite Digital Printing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/pricing.js"></script>
+</body>
+</html> 
